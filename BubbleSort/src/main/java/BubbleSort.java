@@ -21,4 +21,21 @@ public class BubbleSort {
         return words;
     }
 
+    public String[] optimizeSortStrings(String[] words) {
+        int swap = 0;
+        for (int i = 0; i < words.length - 1; i++) {
+            for (int j = 0; j < (words.length - 1) - i; j++) {
+                if (words[j].compareToIgnoreCase(words[j + 1]) > 0) {
+                    String aux = words[j + 1];
+                    words[j + 1] = words[j];
+                    words[j] = aux;
+                    swap++;
+                }
+            }
+            if (swap == words.length - 1) {
+                break;
+            }
+        }
+        return words;
+    }
 }

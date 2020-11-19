@@ -3,21 +3,19 @@
  * Project BubbleSort
  */
 
+
 public class Main {
 
     public static void main(String[] args) {
 
         BubbleSort bubbleSort = new BubbleSort();
 
-        String[] babyNames = {"Liam", "Olivia", "Noah", "Emma", "Oliver", "Ava", "Elijah", "Charlotte", "Mason", "Evelyn", "Pablo"};
-        for (String name : bubbleSort.sortStrings(babyNames)) {
-            System.out.println(name);
-        }
+        String[] names = {"Fidel", "Olivia", "Daniel", "Sebas", "Zane", "Ana", "Elijah", "Silvia", "Mason", "Pablo"};
 
-//        int[] numbers = {4, 2, 1, 5, 3, 7, 9, 10, 6, 8},
-//        for (String name : bubbleSort.sortStrings(babyNames)) {
-//            System.out.println(name);
-//        }
+        System.out.println("Names["+names.length+"]: ");
+        for (int i = 0; i < bubbleSort.optimizeSortStrings(names).length; i++) {
+            System.out.println("["+(i+1)+"] "+names[i]);
+        }
 
     }
 
