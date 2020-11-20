@@ -4,10 +4,11 @@
  */
 
 
+import java.util.Scanner;
+
 public class Main {
 
     public static void main(String[] args) {
-
         BubbleSort bubbleSort = new BubbleSort();
 
         String[] names = {"Fidel", "Olivia", "Daniel", "Sebas", "Zane", "Ana", "Elijah", "Silvia", "Mason", "Pablo"};
