@@ -22,17 +22,19 @@ public class BubbleSort {
     }
 
     public String[] optimizeSortStrings(String[] words) {
-        int swap = 0;
+        boolean swap = false;
         for (int i = 0; i < words.length - 1; i++) {
+            swap = false;
             for (int j = 0; j < (words.length - 1) - i; j++) {
                 if (words[j].compareToIgnoreCase(words[j + 1]) > 0) {
                     String aux = words[j + 1];
                     words[j + 1] = words[j];
                     words[j] = aux;
-                    swap++;
+                    swap = true;
                 }
             }
-            if (swap == words.length - 1) {
+            //If no two elements were swapped by inner loop, then break.
+            if (swap == false) {
                 break;
             }
         }

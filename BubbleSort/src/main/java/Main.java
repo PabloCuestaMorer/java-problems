@@ -17,7 +17,6 @@ public class Main {
         for (int i = 0; i < bubbleSort.optimizeSortStrings(names).length; i++) {
             System.out.println("["+(i+1)+"] "+names[i]);
         }
-
     }
 
 
