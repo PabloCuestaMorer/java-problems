@@ -14,6 +14,10 @@ public class Main {
             coins[i] = coin;
         }
 
+        for (Coin coin :coins) {
+            System.out.print(coin.getWeight()+ " ");
+        }
+
         System.out.println(findFakeCoin(coins));
 
     }
@@ -25,9 +29,10 @@ public class Main {
             boolean oddCoins = coins.length % 2 == 1;
             int third = coins.length / 3;
             Coin[] coinsLeft = Arrays.copyOfRange(coins, 0, third);
-            Coin[] coinsMiddle = Arrays.copyOfRange(coins, 0, third * 2);
-            Coin[] coinsRight = Arrays.copyOfRange(coins, third * 2, coins.length);
+            Coin[] coinsMiddle = Arrays.copyOfRange(coins, third, (2*third));
+            Coin[] coinsRight = Arrays.copyOfRange(coins, (2*third), coins.length);
             int result = compareCoins(coinsLeft, coinsMiddle);
+
             if (result == -1){
                 System.out.println("Searching from "+ coinsLeft[0].getPosition()+ " to "+ coinsMiddle[coinsMiddle.length-1].getPosition());
                 return findFakeCoin(coinsMiddle);
@@ -45,7 +50,7 @@ public class Main {
     }
 
     private static int compareCoins(Coin[] left, Coin[] right) {
-        //Sum both sides weight
+        //Sum both piles weight
         double leftCoinsWeight = 0.0;
         for (Coin coin : left) {
             leftCoinsWeight += coin.getWeight();
@@ -54,12 +59,13 @@ public class Main {
         for (Coin coin : right) {
             rightCoinsWeight += coin.getWeight();
         }
-        //Check the heaviest partition
+        //Check the heaviest pile
         if (leftCoinsWeight > rightCoinsWeight) {
             return -1;
         } else if (rightCoinsWeight > leftCoinsWeight) {
             return 1;
         } else {
+            //The coins are equals
             return 0;
         }
     }
